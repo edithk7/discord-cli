@@ -118,7 +118,13 @@ func MessagePrint(Time, Username, Content string) {
 	if val, ok := State.MemberRole[Username]; ok {
 		Color = ColorMatch(val.Color)
 	}
-	UserName := color.New(Color).SprintFunc()
+	
+	if (string(Username)[0] == "Y") {
+		UserName := color.New(color.FgYellow).SprintFunc()	
+	}
+	else {
+		UserName := color.New(Color).SprintFunc()
+	}
 
 	log.SetFlags(0)
 	log.Printf("[%s] %s: %s\n", LocalTime, UserName(Username), Content)
