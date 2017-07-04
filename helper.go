@@ -114,7 +114,7 @@ func Notify(m *discordgo.Message) {
 func MessagePrint(Time, Username, Content string) {
 	var Color color.Attribute
 	TimeStamp, _ := time.Parse(time.RFC3339, Time)
-	LocalTime := TimeStamp.Local().Format("15:04")
+	LocalTime := TimeStamp.Local().Format("15:04:22")
 	if val, ok := State.MemberRole[Username]; ok {
 		Color = ColorMatch(val.Color)
 	}
