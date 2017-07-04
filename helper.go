@@ -120,12 +120,24 @@ func MessagePrint(Time, Username, Content string) {
 	}
 	
 	UserName := color.New(Color).SprintFunc()
-	if (string(Username[0]) == "Y") {
+	UserName = color.New(color.FgCyan).SprintFunc()
+	last_char := strings.ToLower(Username[len(Username)-1:])
+	if (last_char == "a" || last_char == "b" || last_char == "c" || last_char == "d" || last_char == "e") {
 		UserName = color.New(color.FgYellow).SprintFunc()	
+	} else if (last_char == "f" || last_char == "g" || last_char == "h" || last_char == "i" || last_char == "j") {
+		UserName = color.New(color.FgRed).SprintFunc()
+	} else if (last_char == "k" || last_char == "l" || last_char == "m" || last_char == "n" || last_char == "o") {
+		UserName = color.New(color.FgGreen).SprintFunc()
+	} else if (last_char == "p" || last_char == "q" || last_char == "r" || last_char == "s" || last_char == "t") {
+		UserName = color.New(color.FgBlue).SprintFunc()
+	} else if (last_char == "u" || last_char == "v" || last_char == "w" || last_char == "x" || last_char == "y") {
+		UserName = color.New(color.FgMagenta).SprintFunc()
+	} else if (last_char == "z") {
+		UserName = color.New(color.FgCyan).SprintFunc()
 	}
 
 	log.SetFlags(0)
-	log.Printf("[%s] %s: %s %s\n", LocalTime, UserName(Username), Content, string(Username[0]))
+	log.Printf("[%s] %s: %s\n", LocalTime, UserName(Username), Content)
 	log.SetFlags(log.LstdFlags)
 }
 
