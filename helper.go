@@ -119,7 +119,8 @@ func MessagePrint(Time, Username, Content string) {
 		Color = ColorMatch(val.Color)
 	}
 	
-	UserName := color.New(color.FgYellow).SprintFunc()
+	UserName := color.New(Color).SprintFunc()
+	UserName = color.New(color.FgYellow).SprintFunc()
 	if (string(Username[0]) == "Y") {
 		UserName = color.New(color.FgYellow).SprintFunc()	
 	}
