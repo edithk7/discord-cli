@@ -120,6 +120,7 @@ func MessagePrint(Time, Username, Content string) {
 	}
 	
 	UserName := color.New(Color).SprintFunc()
+	log.Printf("%s, %s", string(Username), string(Username[0]))
 	if (string(Username[0]) == "Y") {
 		UserName = color.New(color.FgYellow).SprintFunc()	
 	}
