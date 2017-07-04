@@ -125,7 +125,7 @@ func MessagePrint(Time, Username, Content string) {
 	}
 
 	log.SetFlags(0)
-	log.Printf("[%s] %s: %s %s\n", LocalTime, UserName(Username), Content, string(Username[0]))
+	log.Printf("[%s] %s: %s %s\n", LocalTime, UserName(Username), Content, "derp")
 	log.SetFlags(log.LstdFlags)
 }
 
