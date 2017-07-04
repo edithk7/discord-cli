@@ -120,13 +120,12 @@ func MessagePrint(Time, Username, Content string) {
 	}
 	
 	UserName := color.New(Color).SprintFunc()
-	UserName = color.New(color.FgYellow).SprintFunc()
 	if (string(Username[0]) == "Y") {
 		UserName = color.New(color.FgYellow).SprintFunc()	
 	}
 
 	log.SetFlags(0)
-	log.Printf("[%s] %s: %s %s\n", LocalTime, UserName(Username), Content, "derp")
+	log.Printf("[%s] %s: %s %s\n", LocalTime, UserName(Username), Content, string(Username[0]))
 	log.SetFlags(log.LstdFlags)
 }
 
