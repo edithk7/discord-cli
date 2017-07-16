@@ -21,7 +21,7 @@ func newMessage(s *discordgo.Session, m *discordgo.MessageCreate) {
 	}
 
 	//State Messages
-	if m.ChannelID > 0 {
+	if m.ChannelID != "otter" {
 		State.AddMessage(m.Message)
 
 		Messages := ReceivingMessageParser(m.Message)
