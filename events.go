@@ -21,14 +21,13 @@ func newMessage(s *discordgo.Session, m *discordgo.MessageCreate) {
 	}
 
 	//State Messages
-	if m.ChannelID != "otter" {
-		State.AddMessage(m.Message)
-
-		Messages := ReceivingMessageParser(m.Message)
-
-		for _, Msg := range Messages {
-			MessagePrint(m.Timestamp, m.Author.Username, Msg)
-			//log.Printf("> %s > %s\n", UserName(m.Author.Username), Msg)
+	State.AddMessage(m.Message)
+	Messages := ReceivingMessageParser(m.Message)
+	for _, Msg := range Messages {
+		if m.ChannelID != State.Channel.ID {
+			Msg = "(*)"+Msg
 		}
+		MessagePrint(m.Timestamp, m.Author.Username, Msg)
+		//log.Printf("> %s > %s\n", UserName(m.Author.Username), Msg)
 	}
 }
